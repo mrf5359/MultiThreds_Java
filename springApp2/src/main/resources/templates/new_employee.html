@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>People Management System</title>
+    <link rel="stylesheet"
+          href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        a:active{
+            color: white;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: dimgrey;
+            background-color: white;
+        }
+
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        form table {
+            width: 100%;
+        }
+
+        form td {
+            padding: 10px;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="number"],
+        form select {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: dimgrey;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+        .btn1, .btn{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>People Management System</h1>
+    <hr>
+    <h2>Save Person</h2>
+
+    <form action="#" th:action="@{/savePerson}" th:object="${person}"
+          method="POST">
+        <input type="text" th:field="*{firstName}"
+               placeholder="First Name" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{lastName}"
+               placeholder="Last Name" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{middleName}"
+               placeholder="Middle Name" class="form-control mb-4 col-4">
+
+        <input type="number" th:field="*{age}"
+               placeholder="Age" class="form-control mb-4 col-4">
+
+        <div class="form-group mb-4 col-4">
+            <label>Gender</label><br>
+            <div>
+                <br><input type="radio" th:field="*{gender}" value="male"> Male
+                <br><input type="radio" th:field="*{gender}" value="female"> Female
+                <br><input type="radio" th:field="*{gender}" value="other">
+                Other
+            </div>
+        </div>
+
+        <input type="text" th:field="*{phoneNumber}"
+               placeholder="Phone Number" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{roomNumber}"
+               placeholder="Room Number" class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn2"> Save Person</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/}"> Back to People List</a>
+</div>
+</body>
+</html>
